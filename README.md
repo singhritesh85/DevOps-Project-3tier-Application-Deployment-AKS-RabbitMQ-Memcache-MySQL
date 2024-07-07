@@ -66,6 +66,14 @@ Create a database named as account in mysql and import the file db_backup.sql.
 I have created Service service Connection for SonarQube, Azure Artifacsts and Docker Repository as shown below.
 ![image](https://github.com/singhritesh85/DevOps-Project-3tier-Application-Deployment-AKS-RabbitMQ-Memcache-MySQL/assets/56765895/5e3e05ec-d8ca-482d-a74e-22adc671ff2b)
 
+Now Run the Azure Pipeline (the azure-pipelines.yaml is used as provided with this repository). Create the URL using ingress rule for service present in the file ingress-rule.yaml in this repository. Do the entry for this URL with Public IP in Record Set of Azure DNS Zone. Access the newly created URL and provide username admin_vp and password admin_vp.
+![image](https://github.com/singhritesh85/DevOps-Project-3tier-Application-Deployment-AKS-RabbitMQ-Memcache-MySQL/assets/56765895/1884ada8-64d6-4141-bd86-f0dfdae3c610)
+![image](https://github.com/singhritesh85/DevOps-Project-3tier-Application-Deployment-AKS-RabbitMQ-Memcache-MySQL/assets/56765895/0a3a808b-55ab-428b-89ab-a37eb811c554)
+![image](https://github.com/singhritesh85/DevOps-Project-3tier-Application-Deployment-AKS-RabbitMQ-Memcache-MySQL/assets/56765895/783e3b59-40b2-413f-a126-1b386777af81)
+![image](https://github.com/singhritesh85/DevOps-Project-3tier-Application-Deployment-AKS-RabbitMQ-Memcache-MySQL/assets/56765895/345f74c8-c782-4fdd-9878-a3b5c21c5931)
+When you click on the User for the first time it will get the values from MySQL Database and store it in Memcache, so that next time when you click on the same user it will provide the values from the Memcache itself.
+![image](https://github.com/singhritesh85/DevOps-Project-3tier-Application-Deployment-AKS-RabbitMQ-Memcache-MySQL/assets/56765895/36f4d33c-cbd6-462e-8899-6fe17f783a22)
+![image](https://github.com/singhritesh85/DevOps-Project-3tier-Application-Deployment-AKS-RabbitMQ-Memcache-MySQL/assets/56765895/8b3a2cad-a36a-4a98-80b8-f7be94e3fe40)
 
 <br><br/>
 After running the Azure Pipeline the Screenshot for RabbitMQ, SonarQube, Nexus Artifactory and ArgoCD is as shown in the Screenshot below.
