@@ -81,3 +81,5 @@ After running the Azure Pipeline the Screenshot for RabbitMQ, SonarQube, Nexus A
 ![image](https://github.com/singhritesh85/DevOps-Project-3tier-Application-Deployment-AKS-RabbitMQ-Memcache-MySQL/assets/56765895/d99d5211-272d-422d-a252-6a82bbe19469)
 ![image](https://github.com/singhritesh85/DevOps-Project-3tier-Application-Deployment-AKS-RabbitMQ-Memcache-MySQL/assets/56765895/cb9238e9-34d4-451b-aab5-fe38f0b25679)
 ![image](https://github.com/singhritesh85/DevOps-Project-3tier-Application-Deployment-AKS-RabbitMQ-Memcache-MySQL/assets/56765895/6e74fce2-838d-436c-9a9e-a10dd463876c)
+![image](https://github.com/singhritesh85/DevOps-Project-3tier-Application-Deployment-AKS-RabbitMQ-Memcache-MySQL/assets/56765895/0468da53-6ded-4290-98a8-7bc6e2f30d77)
+
