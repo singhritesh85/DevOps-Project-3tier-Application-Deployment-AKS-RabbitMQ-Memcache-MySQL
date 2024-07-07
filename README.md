@@ -22,3 +22,18 @@ Finally you can ensure that rabbitmq_management plugin is enabled or not using t
 **First Node, Consider it as Node-1**
 ![image](https://github.com/singhritesh85/DevOps-Project-3tier-Application-Deployment-AKS-RabbitMQ-Memcache-MySQL/assets/56765895/35fd035e-0d1b-400b-8f98-ba3a025851e3)
 ![image](https://github.com/singhritesh85/DevOps-Project-3tier-Application-Deployment-AKS-RabbitMQ-Memcache-MySQL/assets/56765895/022de284-4490-493a-a4f4-440e7acf5e3f)
+```
+Run below command on Node-1 to set the policy for High Availability (HA) in RabbitMQ Cluster.
+rabbitmqctl set_policy ha-all ".*" '{"ha-mode":"all","ha-sync-mode":"automatic"}'
+```
+![image](https://github.com/singhritesh85/DevOps-Project-3tier-Application-Deployment-AKS-RabbitMQ-Memcache-MySQL/assets/56765895/796a981b-442c-42f1-8826-e36893ee25ef)
+**Second Node, Consider it as Node-2**
+![image](https://github.com/singhritesh85/DevOps-Project-3tier-Application-Deployment-AKS-RabbitMQ-Memcache-MySQL/assets/56765895/32b7736d-0c85-4a74-a67d-b6d04e4afb77)
+**Third Node, Consider it as Node-3**
+![image](https://github.com/singhritesh85/DevOps-Project-3tier-Application-Deployment-AKS-RabbitMQ-Memcache-MySQL/assets/56765895/28f8d608-5f77-47a3-a935-d625219a93cd)
+
+To create RabbitMQ cluster of three nodes follow the below procedures.
+```
+On Node-1 (rabbitmq-vm-1) open the file /var/lib/rabbitmq/.erlang.cookie using cat command and copy the hash value of cookie and paste it on Node-2 and Node-3 in the file /var/lib/rabbitmq/.erlang.cookie.
+Then restart rabbitmq-server service, then stop rabbitmq application using the command rabbitmqctl stop_app on Node-2 (rabbitmq-vm-2) and Node-3 (rabbitmq-vm-3). Finally run the command rabbitmqctl join_cluster rabbit@<IP_Address_Node1> and start the rabbitmq application using the command rabbitmqctl start_app on Node-2 and Node-3.
+```
