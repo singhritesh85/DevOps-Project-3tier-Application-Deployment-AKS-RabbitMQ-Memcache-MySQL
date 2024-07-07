@@ -19,3 +19,6 @@ The Bootstrapping script will install RabbitMQ on three Azure VMs. Then list the
 (c) systemctl restart rabbitmq-server
 Finally you can ensure that rabbitmq_management plugin is enabled or not using the command rabbitmq-plugins list
 ```
+**First Node, Consider it as Node-1**
+![image](https://github.com/singhritesh85/DevOps-Project-3tier-Application-Deployment-AKS-RabbitMQ-Memcache-MySQL/assets/56765895/35fd035e-0d1b-400b-8f98-ba3a025851e3)
+![image](https://github.com/singhritesh85/DevOps-Project-3tier-Application-Deployment-AKS-RabbitMQ-Memcache-MySQL/assets/56765895/022de284-4490-493a-a4f4-440e7acf5e3f)
