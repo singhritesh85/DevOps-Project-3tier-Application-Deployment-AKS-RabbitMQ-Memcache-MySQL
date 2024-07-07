@@ -21,7 +21,7 @@ Finally you can ensure that rabbitmq_management plugin is enabled or not using t
 ```
 **First Node, Consider it as Node-1**
 ![image](https://github.com/singhritesh85/DevOps-Project-3tier-Application-Deployment-AKS-RabbitMQ-Memcache-MySQL/assets/56765895/35fd035e-0d1b-400b-8f98-ba3a025851e3)
-![image](https://github.com/singhritesh85/DevOps-Project-3tier-Application-Deployment-AKS-RabbitMQ-Memcache-MySQL/assets/56765895/022de284-4490-493a-a4f4-440e7acf5e3f)
+![image](https://github.com/singhritesh85/DevOps-Project-3tier-Application-Deployment-AKS-RabbitMQ-Memcache-MySQL/assets/56765895/6990f16d-f80b-4148-bea8-ac2e15c3349a)
 ```
 Run below command on Node-1 to set the policy for High Availability (HA) in RabbitMQ Cluster.
 rabbitmqctl set_policy ha-all ".*" '{"ha-mode":"all","ha-sync-mode":"automatic"}'
@@ -37,3 +37,39 @@ To create RabbitMQ cluster of three nodes follow the below procedures.
 On Node-1 (rabbitmq-vm-1) open the file /var/lib/rabbitmq/.erlang.cookie using cat command and copy the hash value of cookie and paste it on Node-2 and Node-3 in the file /var/lib/rabbitmq/.erlang.cookie.
 Then restart rabbitmq-server service, then stop rabbitmq application using the command rabbitmqctl stop_app on Node-2 (rabbitmq-vm-2) and Node-3 (rabbitmq-vm-3). Finally run the command rabbitmqctl join_cluster rabbit@<IP_Address_Node1> and start the rabbitmq application using the command rabbitmqctl start_app on Node-2 and Node-3.
 ```
+**Node-1**
+![image](https://github.com/singhritesh85/DevOps-Project-3tier-Application-Deployment-AKS-RabbitMQ-Memcache-MySQL/assets/56765895/0799cd86-1e32-4f25-8a26-b689db591369)
+**Node-2**
+![image](https://github.com/singhritesh85/DevOps-Project-3tier-Application-Deployment-AKS-RabbitMQ-Memcache-MySQL/assets/56765895/f11288ad-bceb-442a-b07d-d33ffc8ee555)
+**Node-3**
+![image](https://github.com/singhritesh85/DevOps-Project-3tier-Application-Deployment-AKS-RabbitMQ-Memcache-MySQL/assets/56765895/2f69144b-c910-415d-b539-28080f2c3ffc)
+<br><br/>
+Finally copy the Public IP of the Application Gateway of RabbitMQ and create the Record Set in Azure DNS Zone. Access the URL and you will see the default console for RabbitMQ, you can use the initial username and password as guest and login into the RabbitMQ console.
+![image](https://github.com/singhritesh85/DevOps-Project-3tier-Application-Deployment-AKS-RabbitMQ-Memcache-MySQL/assets/56765895/40afcab3-70e5-4cdb-abf4-ec31e0bfb704)
+![image](https://github.com/singhritesh85/DevOps-Project-3tier-Application-Deployment-AKS-RabbitMQ-Memcache-MySQL/assets/56765895/bec24e74-a2e1-4d62-883d-70e0d9c3d590)
+
+The source code is present in Azure Repos. I have taken the Source Code present in GitHub Repository https://github.com/singhritesh85/Three-tier-WebApplication.git and did changes in pom.xml, Dockerfile, application.properties as shown below.
+![image](https://github.com/singhritesh85/DevOps-Project-3tier-Application-Deployment-AKS-RabbitMQ-Memcache-MySQL/assets/56765895/6ac43e57-0fda-4875-8cd0-209e713bd071)
+![image](https://github.com/singhritesh85/DevOps-Project-3tier-Application-Deployment-AKS-RabbitMQ-Memcache-MySQL/assets/56765895/fbc78d53-0463-4826-bb77-470a67961e64)
+![image](https://github.com/singhritesh85/DevOps-Project-3tier-Application-Deployment-AKS-RabbitMQ-Memcache-MySQL/assets/56765895/8642df42-993e-4413-93c2-b85559891020)
+![image](https://github.com/singhritesh85/DevOps-Project-3tier-Application-Deployment-AKS-RabbitMQ-Memcache-MySQL/assets/56765895/d9771bb1-b839-4b11-8808-2fab921c5119)
+![image](https://github.com/singhritesh85/DevOps-Project-3tier-Application-Deployment-AKS-RabbitMQ-Memcache-MySQL/assets/56765895/c26edc3a-4d1b-4cdc-92da-584fe6ab3179)
+
+For Azure Artifacts, copy below section and paste to pom.xml as I have shown in above screenshot.
+![image](https://github.com/singhritesh85/DevOps-Project-3tier-Application-Deployment-AKS-RabbitMQ-Memcache-MySQL/assets/56765895/913dd4de-c185-44dc-9426-11908005cf28)
+Provide Contibutor Access for Azure Artifacts as shown in screenshot below.
+![image](https://github.com/singhritesh85/DevOps-Project-3tier-Application-Deployment-AKS-RabbitMQ-Memcache-MySQL/assets/56765895/619d8baf-3add-4556-afb5-b1d5d3e66afd)
+<br><br/>
+Create a database named as account in mysql and import the file db_backup.sql. 
+![image](https://github.com/singhritesh85/DevOps-Project-3tier-Application-Deployment-AKS-RabbitMQ-Memcache-MySQL/assets/56765895/c069b23f-f058-4fea-9440-834fb7740133)
+
+I have created Service service Connection for SonarQube, Azure Artifacsts and Docker Repository as shown below.
+![image](https://github.com/singhritesh85/DevOps-Project-3tier-Application-Deployment-AKS-RabbitMQ-Memcache-MySQL/assets/56765895/5e3e05ec-d8ca-482d-a74e-22adc671ff2b)
+
+
+<br><br/>
+After running the Jenkins Job the Screenshot for RabbitMQ, SonarQube, Nexus Artifactory and ArgoCD is as shown in the Screenshot below.
+![image](https://github.com/singhritesh85/DevOps-Project-3tier-Application-Deployment-AKS-RabbitMQ-Memcache-MySQL/assets/56765895/faa15af6-5176-4fc7-94de-39079de9df5f)
+![image](https://github.com/singhritesh85/DevOps-Project-3tier-Application-Deployment-AKS-RabbitMQ-Memcache-MySQL/assets/56765895/d99d5211-272d-422d-a252-6a82bbe19469)
+![image](https://github.com/singhritesh85/DevOps-Project-3tier-Application-Deployment-AKS-RabbitMQ-Memcache-MySQL/assets/56765895/cb9238e9-34d4-451b-aab5-fe38f0b25679)
+![image](https://github.com/singhritesh85/DevOps-Project-3tier-Application-Deployment-AKS-RabbitMQ-Memcache-MySQL/assets/56765895/6e74fce2-838d-436c-9a9e-a10dd463876c)
