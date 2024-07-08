@@ -5,7 +5,7 @@ In the Architecture diagram shown above a basic architecture of three-tier appli
 <br><br/>
 The three tier Application is implemented using AKS as shown in the diagram below. It's Architecture diagram is same as explained above but instead of Nginx Sever, Application Gateway Ingress Controller has been used.
 
-![image](https://github.com/singhritesh85/DevOps-Project-3tier-Application-Deployment-AKS-RabbitMQ-Memcache-MySQL/assets/56765895/dfb02adb-020a-430d-a106-f6086bf1ce95)
+![image](https://github.com/singhritesh85/DevOps-Project-3tier-Application-Deployment-AKS-RabbitMQ-Memcache-MySQL/assets/56765895/85c91891-6178-4895-bbaf-627dfe7b2b29)
 
 I have used terraform script as provided in this repository to create the Azure VMs, Application Gateways, AKS and Azure Database for MySQL Flexible Servers.
 
