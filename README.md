@@ -60,7 +60,7 @@ For Azure Artifacts, copy below section and paste to pom.xml as I have shown in 
 Provide Contibutor Access for Azure Artifacts as shown in screenshot below.
 ![image](https://github.com/singhritesh85/DevOps-Project-3tier-Application-Deployment-AKS-RabbitMQ-Memcache-MySQL/assets/56765895/619d8baf-3add-4556-afb5-b1d5d3e66afd)
 <br><br/>
-Create a database named as account in mysql and import the file db_backup.sql. 
+Create a database named as accounts in mysql and import the file db_backup.sql. 
 ![image](https://github.com/singhritesh85/DevOps-Project-3tier-Application-Deployment-AKS-RabbitMQ-Memcache-MySQL/assets/56765895/c069b23f-f058-4fea-9440-834fb7740133)
 
 I have created Service service Connection for SonarQube, Azure Artifacsts and Docker Repository as shown below.
